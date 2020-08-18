@@ -74,9 +74,9 @@ SearchCorValue = function(ORI, COR){ #找到某指标对应的另一指标的值
 
 ### loading data - imputated version
 setwd('C:/Users/Zheyi-LT/OneDrive/mycoffer/')
-for (rdat in dir('indexSQL')){load(paste0('indexSQL/',rdat))}
+for (rdat in dir('SuperIndex')){load(paste0('SuperIndex/',rdat))}
 
-dflist0 = gsub('.Rdata', '', dir('indexSQL')) #全部都需要预处理
+dflist0 = gsub('.Rdata', '', dir('SuperIndex')) #全部都需要预处理
 dflist1 = grep('POP|\\d', dflist0, invert=T, value=T) #用来算OLS的
 dflist2 = c("GDP1st","GDP23","GDP2nd","GDP3rd","POPdensity","POPResident","POPurban")
 dflist = c(dflist1, dflist2)
@@ -85,7 +85,7 @@ for (yi in 1:length(dflist)){
   ydfname = dflist[yi]
   rangeStatList = c('市辖区', 'Districts', 'BetaD/', 'FigD/')
   rangeStat = rangeStatList[1] #按照指标对应的区域更改
-  year = 1985:2017
+  year = 1985:2018
   xdf = get(xdfname)
   #delcity = c('三沙市')
   #delcity = c('昌都市','拉萨市','林芝市','日喀则市','山南市','那曲市','三沙市','海东市','儋州市','哈密市','吐鲁番市','重庆市')
